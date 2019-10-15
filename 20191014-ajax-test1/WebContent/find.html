@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>查找顾客</title>
+</head>
+<body>
+<p>请输入顾客姓名：<input type="text" id="uname" />
+<button id="findBtn">支持模糊查询</button></p>
+<hr/>
+<table border="1" width="400">
+<thead>
+	<tr>
+	<th>编号</th>
+	<th>姓名</th>
+	<th>性别</th>
+	<th>联系方式</th>
+	<th>所在部门</th>
+	</tr>	
+	</thead>
+	<tbody>
+	
+	</tbody>
+</table>
+
+<script type="text/javascript">
+	document.getElementById("findBtn").onclick = function(){
+		document.getElementsByTagName("tbody")[0].innerHTML="";
+		var name = document.getElementById("uname").value;
+		var req;
+		if(window.XMLHttpRequest){
+			req = new window.XMLHttpRequest();
+		}else{
+			req = new ActiveXObject("Microsoft.XMLHTTP");
+		}
+		
+		req.open("GET","FindUserServlet?uname="+name);
+		req.send();
+		
+		req.onreadystatechange=function(){
+			if(req.readyState==4 && req.status==200){
+				var rs = req.responseText;
+				console.log(rs);
+				if(rs=="[]"){
+					alert("无符合条件的记录");
+					return;
+				}
+				var json = JSON.parse(rs);
+				for(var i=0; i<json.length; i++){
+					var user = json[i];
+					//创建tr
+					var otr = document.createElement("tr");
+					var otd1 = document.createElement("td");
+					otd1.innerHTML = user["id"];
+					otr.appendChild(otd1);
+					
+					var otd2 = document.createElement("td");
+					otd2.innerHTML = user["uname"];
+					otr.appendChild(otd2);
+					
+					var otd3 = document.createElement("td");
+					otd3.innerHTML = user["sex"];
+					otr.appendChild(otd3);
+					
+					var otd4 = document.createElement("td");
+					otd4.innerHTML = user["tel"];
+					otr.appendChild(otd4);
+					
+					var otd5 = document.createElement("td");
+					otd5.innerHTML = user["depa"];
+					otr.appendChild(otd5);
+					
+					/*for(var u in user){
+						var otd = document.createElement("td");
+						otd.innerHTML = user[u];
+						otr.appendChild(otd);
+					}*/
+					
+					document.getElementsByTagName("tbody")[0].appendChild(otr);
+				}
+				
+			}
+			
+		};
+		
+		
+	};
+
+</script>
+</body>
+</html>
