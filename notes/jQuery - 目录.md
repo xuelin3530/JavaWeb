@@ -4,7 +4,7 @@
 - 本节理论
 - - [jQuery的使用](jQuery%20-%20使用.md)
 - 本节编码实践
-- - [jQ获取页面元素](跳源码)
+- - [jQ获取页面元素](https://github.com/linnxue/JavaWeb/blob/master/20191015-jquery-demo/WebContent/page1.html)
 - - [元素属性修改](page2)
 - - [jQ的事件操作]()`page3`
 - - [jQ的事件操作]()`page4`
