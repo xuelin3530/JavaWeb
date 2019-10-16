@@ -29,7 +29,7 @@ JavaWeb从入门到精通
 
 ## 第四部分
 - [Ajax技术使用]()
-- [jQuery使用]()
+- [jQuery使用](https://github.com/linnxue/JavaWeb/blob/master/notes/jQuery%20-%20%E7%9B%AE%E5%BD%95.md)
 - [jQuery中的Ajax]()
 - [MVC和分页]()
 - [Bootstrap]()
