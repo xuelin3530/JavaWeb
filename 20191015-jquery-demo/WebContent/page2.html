@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<script type="text/javascript" src="js/jquery-3.1.1.js"></script>
+<style type="text/css">
+	.myback{
+		background-color:red;
+	}
+	.mycolor{
+		color:green;
+	}
+	.mysize{
+		width:200px;
+		height:50px;
+	}
+	.myfont{
+		font-size:30px;
+		font-style:italic;
+	}
+</style>
+</head>
+<body>
+<ul>
+	<li>这是第一个li标签</li>
+	<li>这是第二个li标签</li>
+	<li>被绿的li标签</li>
+	<li class="mycolor">被叠加了样式的、自带class的li标签</li>
+	<li>这是最后一个li标签</li>
+</ul>
+<input type="text" name="name" value=""/>
+<button>点我第二个li标签显示文本框内容</button>
+<button>点我清除所有li标签的样式</button>
+<button>remove myfont</button>
+<h1></h1>
+<button id="btn1">hide1</button>
+<button id="btn2">show1</button>
+<h1></h1>
+<button id="btn3">hide2</button>
+<button id="btn4">show2</button>
+<h2></h2>
+<button id="btn5">hide3</button>
+<button id="btn6">show3</button>
+<h2></h2>
+<a href="#">无连接</a>
+</body>
+<script type="text/javascript">
+	
+	$("ul li:first").html("<h1>被html改变的第一个li标签</h1>");
+	$("ul li:last").text("<h1>被test改变的最后一个li标签</h1>");
+	$("input").val("value值被改变的文本框");
+	
+	//first或：eq（0），表示所有button中的第一个
+	$("button:eq(0)").click(function(){
+		//获取当前input上的文本内容（value值）
+		var txt = $("input").val();
+		//把txt放到第二个li标签上
+		$("ul li:eq(1)").html(txt);
+		
+	});
+	
+	$("ul li").eq(2).addClass("mycolor");
+	$("ul li").eq(3).addClass("myfont");
+	
+	//移除所有样式
+	$("button:eq(1)").click(function(){
+		$("ul li").removeClass();
+	});
+	//移除myfont样式
+	$("button:eq(2)").click(function(){
+		$("ul li").removeClass("myfont");
+	});
+	
+	//加边框
+	$("ul li:first").css({
+		"border":"1px solid #f00"
+	});
+	
+	
+	$("#btn1").click(function(){
+		$("ul").fadeOut(3000);
+	});
+	$("#btn2").click(function(){
+		$("ul").fadeIn(3000);
+	});
+	
+	$("#btn3").click(function(){
+		$("ul").hide(3000);
+	});
+	$("#btn4").click(function(){
+		$("ul").show(3000);
+	});
+	$("#btn5").click(function(){
+		$("ul").slideUp(3000);
+	});
+	$("#btn6").click(function(){	
+		$("ul").slideDown(3000);	
+	});
+	
+	$("a").html("友情链接：百度");
+	$("a").attr("href","http://www.baidu.com");
+
+</script>
+</html>

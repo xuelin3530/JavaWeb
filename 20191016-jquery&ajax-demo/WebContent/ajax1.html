@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>JQuery</title>
+<script type="text/javascript" src="js/jquery-3.1.1.js"></script>
+<script type="text/javascript">
+$(function(){
+	$("#btn").click(function(){
+		$.ajax({
+			"type":"GET",
+			"url":"/20191016-jquery&ajax-demo/a.txt",
+			"dataType":"text",
+			"success":function(data){
+				$("#div1").html(data);
+			},
+			"error":function(){
+				alert("ajax 请求失败");
+			}
+		});
+	});
+	
+	$("#btn2").click(function(){
+		$.ajax({
+			"type":"POST",
+			"url":"tq.json",
+			"dataType":"json",
+			"success":function(data){
+				var city = data["weatherinfo"]["city"];
+				var temp1 = data["weatherinfo"].temp1;
+				var temp2 = data.weatherinfo.temp2;
+				var wea = data.weatherinfo["weather"];
+				
+				$("#div2").html("城市："+city+"<br>"
+						+"最低气温："+temp2+"<br/>"
+						+"最高气温："+temp1+"<br/>"
+						+"天气情况："+wea+"<br/>");
+
+			},
+			"error":function(data){
+				console.log(data);
+			}
+		});
+	});
+	
+});
+</script>
+
+</head>
+<body>
+<button id="btn">ajax请求</button>
+<div id="div1"></div>
+<hr/>
+<button id="btn2">查看天气</button>
+<div id="div2"></div>
+</body>
+
+</html>

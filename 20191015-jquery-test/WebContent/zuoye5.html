@@ -1,0 +1,61 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>无标题文档</title>
+<style type="text/css">
+#ul1{padding:0; margin:0; list-style:none;  width:300px; height:28px;}
+#ul1 li{float:left; background:url(img/star.gif) no-repeat 0 0; width:27px; height:28px; }
+
+</style>
+<script type="text/javascript" src="js/jquery-3.1.1.js"></script>
+<script type="text/javascript">
+//页面加载完成，只需要等document结构加载完毕即可
+	$(function(){
+		//ul1中所有li添加鼠标悬停事件
+		$("#ul1 li").mouseover(function(){
+			//还原所有li的背景图片的位置
+			$("#ul1 li").css("backgroundPosition","0px 0px");
+			//保存li的索引号
+			var index = $(this).index();
+			//该li之前的所有li背景图片的位置变化，向上移动28px
+			$("#ul1 li:lt("+(index+1)+")").css("backgroundPosition","0px -28px");
+		});
+		
+		$("#ul1 li").click(function(){
+			//保存li的索引号
+			var index = $(this).index();
+			switch(index+1){
+			case 1:
+				$("#div").html("1分 差评");
+				break;
+			case 2:
+				$("#div").html("2分 一般");
+				break;
+			case 3:
+				$("#div").html("3分 比较满意");
+				break;
+			case 4:
+				$("#div").html("4分 推荐");
+				break;
+			case 5:
+				$("#div").html("5分 强烈推荐");
+				break;
+			}
+			
+		});
+	});
+</script>
+</head>
+
+<body>
+<ul id="ul1" >
+<li class="default"> </li>
+<li class="default"> </li>
+<li class="default"> </li>
+<li class="default"> </li>
+<li class="default"> </li>
+</ul>
+<div id="div"></div>
+</body>
+</html>

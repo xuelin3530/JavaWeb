@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<script type="text/javascript" src="js/jquery-3.1.1.js"></script>
+<style type="text/css">
+	#myimg{
+		display:none;
+	}
+</style>
+
+<script type="text/javascript">
+
+/*$(document).ready(function(){
+	$("#btn").click(function(){
+		 alert($("#name").val());
+	 });
+	 
+	 $("#all").change(function(){
+		 $("input[name='xz']").attr("checked",this.checked);	 
+	 });
+	 
+	 $("#mya").mouseover(function(){
+		 $("#myimg").show();
+	 });
+	 
+	 $("#mya").mouseout(function(){
+		 $("#myimg").hide();
+	 });
+	
+});*/
+
+// $(document).ready()=>  $();
+$(function(){
+	$("#btn").click(function(){
+		 alert($("#name").val());
+	 });
+	 
+	 $("#all").change(function(){
+		 $("input[name='xz']").attr("checked",this.checked);	 
+	 });
+	 
+	$("#mya").mouseover(function(){
+		 $("#myimg").show();
+	 });
+	 
+	 $("#mya").mouseout(function(){
+		 $("#myimg").hide();
+	 });
+	 
+	
+	
+});
+
+ 
+ 
+</script>
+
+</head>
+<body>
+<input type='text' name="name" id="name"/><button id="btn">click</button>
+<hr/>
+<input type="checkbox" id="all" /> 全选
+<input type="checkbox" name="xz" />
+<input type="checkbox" name="xz" />
+<input type="checkbox" name="xz" />
+<input type="checkbox" name="xz" />
+<a href="#" id="mya">显示图片</a><br/>
+<img src="img/640.jpeg" id="myimg" />
+
+</body>
+</html>

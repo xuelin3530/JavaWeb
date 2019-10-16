@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<script type="text/javascript" src="js/jquery-3.1.1.js"></script>
+
+</head>
+<body>
+<p>用户名：<input type="text" id="username" /></p>
+<p>密码：<input type="password" id="password" /></p>
+<button id="btn">登录</button>
+<div id="div1"></div>
+</body>
+<script type="text/javascript">
+
+$("#btn").click(function(){
+	var name = $("#username").val();
+	var pwd = $("#password").val();
+	
+	$.ajax({
+		"type":"POST",//请求方式
+		"url":"/20191016-jquery&ajax-demo/LoginServlet",//请求路径
+		//"data":"username="+name+"&password="+pwd,
+		"data":{"username":name, "password":pwd},//请求数据
+		"dataType":"json",//返回数据类型 text json
+		"success":function(data){//响应成功要执行的操作
+			if(data["result"]==0){
+				$("#div1").html("登录失败");
+			}else{
+				var uname = data["username"];
+				var upwd = data["password"];
+				var sex = data["sex"];
+				var age = data["age"];
+				$("#div1").html(uname+"<br/>"+upwd+"<br/>"+sex+"<br/>"+age);
+			}
+		}
+		
+	});
+	
+	
+});
+</script>
+</html>

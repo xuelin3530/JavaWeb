@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<script type="text/javascript" src="js/jquery-3.1.1.js"></script>
+<script type="text/javascript">
+
+	$(function(){
+		$("tr button").click(function(){
+			$(this).parent().parent().remove();
+		});
+		
+		$("#addbtn").click(function(){
+			var newtr = $("table tr:first").clone(true);
+			newtr.find("td").eq(0).html($("#id").val());
+			newtr.find("td").eq(1).html($("#name").val());
+			
+			$("table").append(newtr);
+			$("#id").val("");
+			$("#name").val("")
+		});
+		
+	});
+</script>
+</head>
+<body>
+ 编号:<input type="text" id="id"/>
+ 姓名:<input type="text" id="name"/><button id="addbtn">add</button>
+ <h1></h1>
+<table border="1" width="300">
+	<tr>
+		<td>1</td>
+		<td>Tom</td>
+		<td><button>delete</button></td>
+	</tr>
+</table>
+</body>
+</html>
