@@ -1,0 +1,143 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<style>
+	#list li{
+		list-style:none;
+		margin:0;
+		margin-bottom:2px;
+	}
+	#list span{
+		display:inline-block;
+		width:100px;
+	}
+	#list .p1{
+		background-color:#ccc;
+	}
+	#list .p2{
+		background-color:#6f0;
+	}
+	#list .p3{
+		background-color:#098;
+	}
+	#list .p4{
+		background-color:#bbc;
+	}
+	#list .p5{
+		background-color:#ccc;
+		text-decoration:underline;
+		cursor:pointer;
+	}
+	
+	#detail{
+		position:absolute;
+		left:580px;
+		display:none;
+	}
+	
+	#detail img{
+		width:120px;
+		height:160px;
+	}
+</style>
+<script type="text/javascript" src="../js/jquery-3.1.1.js"></script>
+</head>
+<body>
+<ul id="list">
+	<li>
+		<span class="p1">编号</span>
+		<span class="p2">书名</span>
+		<span class="p3">作者</span>
+		<span class="p4">定价</span>
+		<span class="p5">操作</span>
+	</li>
+	<li>
+		<span class="p1">101</span>
+		<span class="p2">Java基础</span>
+		<span class="p3">小明 著</span>
+		<span class="p4">56.00</span>
+		<span class="p5">点击查看详情</span>
+	</li>
+	<li>
+		<span class="p1">108</span>
+		<span class="p2">Java基础</span>
+		<span class="p3">小明 著</span>
+		<span class="p4">56.00</span>
+		<span class="p5">点击查看详情</span>
+	</li>
+	<li>
+		<span class="p1">107</span>
+		<span class="p2">Java基础</span>
+		<span class="p3">小明 著</span>
+		<span class="p4">56.00</span>
+		<span class="p5">点击查看详情</span>
+	</li>
+	<li>
+		<span class="p1">106</span>
+		<span class="p2">Java基础</span>
+		<span class="p3">小明 著</span>
+		<span class="p4">56.00</span>
+		<span class="p5">点击查看详情</span>
+	</li>
+	<li>
+		<span class="p1">105</span>
+		<span class="p2">Java基础</span>
+		<span class="p3">小明 著</span>
+		<span class="p4">56.00</span>
+		<span class="p5">点击查看详情</span>
+	</li>
+</ul>
+<div id="detail">
+		<table width="300" border="1">
+			<tr>
+				<td rowspan="3"><img src="imgs/book.jpg" width="50" height="80"/></td>
+				<td>书名</td>
+				<td>Java基础</td>
+			</tr>
+			<tr>
+				<td>作者</td>
+				<td>小明 著</td>
+			</tr>
+			<tr>
+				<td>定价</td>
+				<td>56.00</td>
+			</tr>
+			<tr>
+				<td>出版社</td>
+				<td colspan="2">北京大学出版社</td>
+			</tr>
+			<tr>
+				<td>所属类别</td>
+				<td colspan="2">计算机类</td>
+			</tr>
+			<tr>
+				<td>ISDN</td>
+				<td colspan="2">
+					123456787654
+				</td>
+			</tr>
+			<tr>
+				<td>图书简介</td>
+				<td colspan="2">
+					适用于各类人群，在书中可以找到真谛~~
+				</td>
+			</tr>
+		</table>
+	</div>
+	<script>
+		$(".p5").click(show);
+		
+		 function show(event){
+			 $("#detail").css("display","block");
+			 $("#detail").css("top",event.clientY + "px");
+				return false;
+			}
+		 $(document).click( function(){
+			 $("#detail").css("display","none");
+		 });
+	</script>
+</body>
+
+</html>
