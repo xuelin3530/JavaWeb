@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<script type="text/javascript" src="js/jquery-3.1.1.js"></script>
+</head>
+<body>
+<table border="1" cellspacing='0' width="400">
+	<tr>
+		<th>编号</th>
+		<th>姓名</th>
+		<th>性别</th>
+		<th>联系方式</th>
+		<th>部门</th>
+	</tr>
+	<tbody id="tbody">
+	
+	</tbody>
+</table>
+
+</body>
+<script type="text/javascript">
+$.get("/20191017/PageServlet",{"type":"ajax"},funllTable,"json");
+function funllTable(data){
+	$("#tbody").empty();
+	for(var i=0; i<data.list.length;i++){
+		var user = data.list[i];
+		var otr = $("<tr>");
+		otr.append($("<td>"+user.id+"</td>"));
+		otr.append($("<td>"+user.uname+"</td>"));
+		otr.append($("<td>"+user.sex+"</td>"));
+		otr.append($("<td>"+user.tel+"</td>"));
+		otr.append($("<td>"+user.depa+"</td>"));
+		
+		$("#tbody").append(otr);
+		
+	}
+}
+</script>
+</html>
