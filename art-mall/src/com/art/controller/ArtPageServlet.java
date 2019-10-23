@@ -23,6 +23,7 @@ import com.art.service.impl.ArtServiceImpl;
 public class ArtPageServlet extends HttpServlet {
 	private static final long serialVersionUID = 1L;
 	private IArtService ias = new ArtServiceImpl();
+
        
     /**
      * @see HttpServlet#HttpServlet()
@@ -36,35 +37,23 @@ public class ArtPageServlet extends HttpServlet {
 	 * @see HttpServlet#doGet(HttpServletRequest request, HttpServletResponse response)
 	 */
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+		String strPageno = request.getParameter("no");
+		String strSize = request.getParameter("size");
 		
-
-//		List<Art> list = ias.getAllArts();
-//		
-//		request.getSession().setAttribute("arts",list);
-//		
-		
-		//当前页码和每页大小
-		Page page = new Page();
-		
-		if(request.getParameter("no")!=null) {
-			page.setPageno(Integer.parseInt(request.getParameter("no"))); 
+		int pageno = 1,size = 6;
+		if (strPageno!=null) {
+			pageno = Integer.parseInt(strPageno);
 		}
-		if(request.getParameter("size")!=null) {
-			page.setSize(Integer.parseInt(request.getParameter("size")));
+		if (strSize!=null) {
+			size = Integer.parseInt(strSize);
 		}
+		Page page = ias.getArtsByPage(size, pageno);
+		request.getSession().setAttribute("page", page);
 		
-		page = ias.getArtsByPage(page.getSize(), page.getPageno());
-		
-		HttpSession session = request.getSession();
-		session.setAttribute("page", page);
-		session.setAttribute("size", page.getSize());
-		
-		request.getRequestDispatcher("/admin-index.jsp").forward(request, response);
+		response.sendRedirect("/art-mall/admin-index.jsp");
 		
 	}
 	
-	
-
 	/**
 	 * @see HttpServlet#doPost(HttpServletRequest request, HttpServletResponse response)
 	 */

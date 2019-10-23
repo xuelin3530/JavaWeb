@@ -1,0 +1,30 @@
+<!DOCTYPE html >
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<title>Insert title here</title>
+</head>
+<body>
+请输入关键字:<input type="text" id = "word">
+<button id = "but">查 询</button>
+<div id = "div"></div>
+</body>
+<script type="text/javascript" src ="js/jquery-3.1.1.js"></script>
+<script type="text/javascript">
+	$("#but").click(function(){
+		var word = $("#word").val();
+		
+		$.ajax({
+			"type":"GET",
+			"url":"https://www.baidu.com/sugrec?pre=1&p=3&ie=utf-8&json=1&prod=pc&from=pc_web&sugsid=1424,21112,29568,29700,29221&req=2&csor=2&pwd=s",
+			"data":{"wd":word},
+			"dataType":"jsonp",
+			"jsonp":"cb",
+			"success":function(data){
+				console.log(data);
+			}
+		});
+	});
+</script>
+</html>
+</html>

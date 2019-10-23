@@ -46,7 +46,7 @@ public class UserLonginServlet extends HttpServlet {
 
 		switch (user.checkLogin(user_name, user_password)) {
 		case 1:
-			response.sendRedirect("/art-mall/user-index.html");
+			response.sendRedirect("/art-mall/ArtPageServlet");
 			break;
 			
 		case 2:

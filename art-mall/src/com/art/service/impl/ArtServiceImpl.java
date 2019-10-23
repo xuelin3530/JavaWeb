@@ -48,10 +48,41 @@ public class ArtServiceImpl implements IArtService{
 	@Override
 	public Page getArtsByPage(int size, int pageno) {
 		Page page = new Page(size, pageno);
-		page.setList(iad.getArtsByPage(size, pageno));
-		page.setTotalRecord(iad.getAllArts().size());
-				
+		
+		if(pageno!=1) {
+			page.setPageno(pageno);
+		}
+		if(size!=6) {
+			page.setSize(size);
+		}
+		
+		List<Art> list = iad.getArtsByPage(page.getSize(), page.getPageno());
+		page.setList(list);
+		
+		int count = iad.getAllArts().size();
+		page.setTotalRecord(count);
+		page.settotalPage();
+		
 		return page;
 	}
 
 }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

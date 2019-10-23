@@ -88,7 +88,7 @@ public class UpdateArtServlet extends HttpServlet {
 		ias.updateArt(art);
 		
 		
-		response.sendRedirect("/art-mall/ShowArtsServlet");
+		response.sendRedirect("/art-mall/ArtPageServlet");
 		System.out.println("修改成功");
 		
 		

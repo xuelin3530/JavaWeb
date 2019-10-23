@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<script type="text/javascript" src="js/jquery-3.1.1.js"></script>
+<script type="text/javascript">
+$(function(){
+	//$.get(url, data, function(){}, dataType)
+	//$.post(url, data, function(){}, dataType)
+	$.post("a.txt", function(data){
+		$("#div1").html(data);
+	});
+	
+	$("#btn").click(function(){
+		$.post("tq.json",function(data){
+			console.log(data);
+			$("#div1").html(data["weatherinfo"]["city"]+" "
+					+data["weatherinfo"]["temp2"]+"~"
+					+data["weatherinfo"]["temp1"])
+		},"json");
+	});
+	
+	
+});
+
+</script>
+</head>
+<body>
+<div id="div1"></div>
+<button id="btn">button</button>
+</body>
+</html>

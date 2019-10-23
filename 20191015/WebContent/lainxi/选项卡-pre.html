@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="gb2312" />
+<title>无标题文档</title>
+<style>
+body,ul,li{margin:0; padding:0; font:12px/1.5 arial;}
+ul,li{list-style:none;}
+.wrap{width:500px; margin:20px auto;}
+.hide{display:none;}
+#tab_t{height:25px;border-bottom:1px solid #ccc;}
+#tab_t li{float:left; width:80px; height:24px; line-height:24px; margin:0 4px; text-align:center; border:1px solid #ccc; border-bottom:none; background:#f5f5f5; cursor:pointer}
+#tab_t .act{ position:relative; height:25px; margin-bottom:-1px; background:#fff;}
+#tab_c{border:1px solid #ccc; border-top:none; padding:20px;}
+</style>
+<script type="text/javascript" src="/20191015/js/jquery-3.1.1.js"></script>
+<script type="text/javascript">
+ $(function(){
+	 
+	 $("#tab_t li").mouseover(function(){
+		 //所有div隐藏
+		 $("#tab_c div").addClass("hide");
+		 //停在第几个li上，第几个div就显示
+		 var index = $(this).index();
+		 $("#tab_c div").eq(index).removeClass("hide");
+		 
+		 $("#tab_t li").removeClass("act");
+		 $(this).addClass("act");
+	 });
+	 
+ });
+</script>
+</head>
+
+<body>
+
+<div class="wrap">
+  <ul id="tab_t">
+    <li class="act">选择1</li>
+    <li>选择2</li>
+    <li>选择3</li>
+    <li>选择4</li>
+  </ul>
+  <div id="tab_c">
+    <div>内容1</div>
+    <div class="hide">内容2</div>
+    <div class="hide">内容3</div>
+    <div class="hide">内容4</div>
+  </div>
+</div>
+
+</body>
+</html>

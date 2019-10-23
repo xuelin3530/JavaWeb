@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<script type="text/javascript" src="/20191015/js/jquery-3.1.1.js"></script>
+<style type="text/css">
+#div1{
+	height:200px;
+	background-color:red;
+}
+#div2{
+	height:50px;
+	background-color:blue;
+}
+</style>
+<script type="text/javascript">
+	$(function(){
+		$("#div1").on("click","button",function(){
+			alert(this.innerHTML);
+		});		
+		
+		
+		$("#div2").click(function(){
+			alert("div2 click");
+		});
+		
+		$("#mya").click(function(){
+			alert("a click");
+			return false;
+		});
+	});
+
+	
+
+</script>
+</head>
+<body>
+<div id="div1">
+	<button>ok1</button>
+	<button>ok2</button>
+	<button>ok3</button>
+	<p>p1</p>
+	<p>p2</p>
+	<p>p3</p>
+</div>
+<div id="div2">
+ <a href="http://www.baidu.com" id="mya">baidu</a>
+</div>
+</body>
+</html>

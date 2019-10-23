@@ -1,0 +1,58 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <title>图库</title>
+        <style>
+            * {
+                margin: 0;
+                padding: 0;
+            }
+
+            #large-img img {
+                height: 500px;
+            }
+
+            #small-container img {
+                height: 60px;
+                cursor: pointer;
+                border: 3px solid transparent;
+            }
+
+            .focus {
+                border: 3px solid #cc0033 !important;
+            }
+
+        </style>
+        <script type="text/javascript" src="/20191015/js/jquery-3.1.1.js"></script>
+        <script type="text/javascript">
+         $(function(){
+        	 $("#small-container img").click(function(){
+        		$("#large-img img").attr("src", this.src);
+        		$("#small-container img").removeClass("focus");
+        		$(this).addClass("focus");
+        	 });
+         });
+        </script>
+    </head>
+    <body>
+        <div id="gallery">
+            <div id="large-img">
+                <img src="imgs/1.jpg">
+            </div>
+            <div id="small-container">
+                <img class="focus" src="imgs/1.jpg"/>
+                <img src="imgs/2.jpg"/>
+                <img src="imgs/3.jpg"/>
+                <img src="imgs/4.jpg"/>
+                <img src="imgs/5.jpg"/>
+                <img src="imgs/6.jpg"/>
+                <img src="imgs/7.jpg"/>
+                <img src="imgs/9.jpg"/>
+            </div>
+        </div>
+
+    
+    
+    </body>
+</html>

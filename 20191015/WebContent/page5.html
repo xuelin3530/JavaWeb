@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<script type="text/javascript" src="/20191015/js/jquery-3.1.1.js"></script>
+<script type="text/javascript">
+  $(function(){
+	 
+	  for(var i=1; i<=5; i++){
+		  var oli = $("<li>");
+		  oli.html(Math.random());
+		  $("#myul").append(oli)
+	  }
+	  
+	  var oinput = $("<input>");
+	  oinput.attr("type","text");
+	  oinput.attr("name","uname");
+	  oinput.val("hello");
+	  var oli2 = $("<li>");
+	  oinput.appendTo(oli2);
+	  $("#myul").prepend(oli2);
+	  
+	  $("#del1").click(function(){
+		  $("#myul li:first").remove();
+	  });
+	  
+	  $("#delall").click(function(){
+		  $("#myul").empty();
+	  });
+  });
+
+</script>
+</head>
+<body>
+<button id="del1">remove first</button>
+<button id="delall">empty</button>
+<ul id="myul"></ul>
+</body>
+</html>

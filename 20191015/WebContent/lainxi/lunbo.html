@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<style type="text/css">
+#myimg{
+	width: 200px;
+	height:200px;
+}
+#div2 button{
+	width:20px;
+	height:20px;
+	font-size:10px;
+}
+.btn{
+	background: red;
+}
+</style>
+<script type="text/javascript" src="/20191015/js/jquery-3.1.1.js"></script>
+<script type="text/javascript">
+	$(function(){
+		var num = 0;
+		function changeImage(){
+			num++;
+			num = num > 5 ? 1 :num;//判断是否超出最后一张图片
+			var url = "../img/"+num+".jpg"
+			$("#myimg").attr("src",url);			
+			//button css删除
+			$("#div2 button").removeClass("btn");
+			$("#div2 button").eq(num-1).addClass("btn");
+		}
+		
+		changeImage();
+		
+		var timer = setInterval(changeImage, 800);
+		
+		$("#myimg").hover(function(){
+			clearInterval(timer);
+		},function(){
+			timer = setInterval(changeImage, 800);
+		});
+		
+	});
+</script>
+</head>
+<body>
+<div id="div1">
+	<img alt="" src="" id="myimg">
+	<div id="div2">
+		<button >1</button>
+		<button>2</button>
+		<button>3</button>
+		<button>4</button>
+		<button>5</button>
+	</div>
+</div>
+</body>
+</html>

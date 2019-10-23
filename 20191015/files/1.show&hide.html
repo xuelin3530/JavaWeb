@@ -1,0 +1,145 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <title>Show and hide</title>
+        <style>
+            * {
+                margin: 0;
+            }
+
+            .container {
+                top: 0;
+                position: relative;
+                margin-left: 10px;
+                /*float: left;*/
+                display: inline-block;
+                vertical-align: top;
+                width: 300px;
+            }
+
+            .container div {
+                height: 100px;
+                background: #66ff66;
+                text-align: center;
+                vertical-align: middle;
+                font-size: 50px;
+                cursor: pointer;
+            }
+
+            .container div span {
+                line-height: 100px;
+            }
+
+            #test {
+                width: 100px;
+                height: 100px;
+                background: red;
+            }
+        </style>
+    </head>
+    <body>
+        <!--<div id="test"></div>-->
+        <div style="vertical-align: top;">
+            <div class="container">
+                <div id="clickme1">
+                    <span>无动画</span>
+                </div>
+                <img id="book1" src="imgs/1.jpg" style="display:none;" width="300">
+            </div>
+
+            <div class="container">
+                <div id="clickme2">
+                    <span>Swing</span>
+                </div>
+                <img id="book2" src="imgs/1.jpg" style="display:none;" width="300">
+                <p id="animation-done2"
+                   style="display: none; width: 100%;background: #000;color: #FFFFFF;font-size: large">Animation
+                    Complete</p>
+            </div>
+
+            <div class="container">
+                <div id="clickme3">
+                    <span>Linear</span>
+                </div>
+                <img id="book3" src="imgs/1.jpg" style="display:none;" width="300">
+                <p id="animation-done3"
+                   style="display: none; width: 100%;background: #000;color: #FFFFFF;font-size: large">Animation
+                    Complete</p>
+            </div>
+
+            <div class="container">
+                <div id="clickme4">
+                    <span>Click here4</span>
+                </div>
+                <img id="book4" src="imgs/1.jpg" style="display:none;" width="300">
+                <p id="animation-done"
+                   style="display: none; width: 100%;background: #000;color: #FFFFFF;font-size: large">Animation
+                    Complete</p>
+            </div>
+        </div>
+        <script src="jquery-3.1.1.js"></script>
+        <script>
+            //show、hide的用法：
+            //1. 可以不传参数，这样只是将元素直接显示或者隐藏
+            //2. 可以传参数：
+            //      第一个参数是动画执行的时间，以毫秒为单位
+            //      第二个参数，是动画执行的效果，swing/linear 类型为string，参数可选
+            //      第三个参数，是动画执行结束后的处理，可选，类型为function
+            //3. 当用show/hide执行动画时，改变元素的height、width、opacity
+
+            $(document).ready(function () {
+                //show&hide如果不传参数，默认没有动画效果
+                $('#clickme1').click(function () {
+//                    if ($('#book1').is(':hidden')) {
+//                        $('#book1').show();
+//                    } else {
+//                        $('#book1').hide();
+//                    }
+                    $('#book1').toggle();
+                });
+
+                //如果传了参数，就可以根据参数，设定动画的时间
+                //第二个参数是一个回调函数，这个函数是当动画结束的时候，会被调用。
+                //如果第二个参数是一个字符串，用于指定动画的效果（匀速的线型动画，还是swing的摇摆动画）
+                $('#clickme2').click(function () {
+                    if ($('#book2').is(':hidden')) {
+                        $('#book2').show(10000, function () {
+                            $('#animation-done2').toggle();
+                        });
+                        $('#book3').show(10000, 'linear', function () {
+                            $('#animation-done3').toggle();
+                        });
+                    } else {
+                        $('#book2').hide(10000, function () {
+                            $('#animation-done2').toggle();
+                        });
+                        $('#book3').hide(10000, 'linear', function () {
+                            $('#animation-done3').toggle();
+                        });
+                    }
+                });
+
+                $('#clickme3').click(function () {
+                    if ($('#book3').is(':hidden')) {
+                        $('#book3').show(10000, 'swing');
+                    } else {
+                        $('#book3').hide(10000, 'swing');
+                    }
+                });
+
+                $('#clickme4').click(function () {
+                    if ($('#book4').is(':hidden')) {
+                        $('#book4').show(5000, 'linear', function () {
+                            $('#animation-done').toggle();
+                        });
+                    } else {
+                        $('#book4').hide(5000, 'linear', function () {
+                            $('#animation-done').toggle();
+                        });
+                    }
+                });
+            })
+        </script>
+    </body>
+</html>

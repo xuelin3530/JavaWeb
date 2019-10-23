@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<style type="text/css">
+#div2{
+	display:none;
+}
+</style>
+<script type="text/javascript" src="../js/jquery-3.1.1.js"></script>
+</head>
+<body>
+<input type="checkbox" id="all" />全选
+<button id="addBtn">添加</button>
+<button id="updateBtn">修改</button>
+<button id="delBtn">删除</button>
+<table border="1" width="500">
+	<tr>
+		<th>选择</th>
+		<th>编号</th>
+		<th>姓名</th>
+		<th>性别</th>
+		<th>电话</th>
+		<th>部门</th>
+	</tr>
+	<tbody id="tbody">
+	
+		<tr>
+		<th><input type="checkbox"  name="xz" value="9" /></th>
+		<th>9</th>
+		<th>孙悟空</th>
+		<th>男</th>
+		<th>13659697544</th>
+		<th>市场部</th>
+	</tr>
+	
+		<tr>
+		<th><input type="checkbox"  name="xz" value="11" /></th>
+		<th>11</th>
+		<th>沙和尚</th>
+		<th>男</th>
+		<th>18764559752</th>
+		<th>教学部</th>
+	</tr>
+	
+		<tr>
+		<th><input type="checkbox"  name="xz" value="16" /></th>
+		<th>16</th>
+		<th>刘宋任</th>
+		<th>男</th>
+		<th>13587699992</th>
+		<th>教学部</th>
+	</tr>
+	
+	</tbody>
+	
+</table>
+<div id="div2">
+		<table>
+			<tr>
+				<td>姓名：</td>
+				<td><input id="name" /></td>
+			</tr>
+			<tr>
+				<td>性别</td>
+				<td><input id="sex" /></td>
+			</tr>
+			<tr>
+				<td>联系方式：</td>
+				<td><input id="tel"/></td>
+			</tr>
+			<tr>
+				<td>所在部门：</td>
+				<td><input id="dept"/></td>
+			</tr>
+			<tr>
+			<td colspan="2">
+				<button id="btn">添加用户信息</button>
+				<button id="cancel">取消</button>
+				</td>
+			</tr>
+		</table>
+	</div>
+</body>
+<script type="text/javascript">
+$("#addBtn").click(function(){
+	$("#div2").css("display","block");
+	
+});
+
+$("#updateBtn").click(function(){
+	$("#div2").css("display","block");
+	$("#div2 input").eq(0).val("孙悟空");
+	$("#div2 input").eq(1).val("男");
+	$("#div2 input").eq(2).val("13659697544");
+	$("#div2 input").eq(3).val("市场部");
+	$("#div2 button").eq(0).html("修改用户信息");
+	
+});
+$("#cancel").click(function(){
+	$("#div2 input").eq(0).val("");
+	$("#div2 input").eq(1).val("");
+	$("#div2 input").eq(2).val("");
+	$("#div2 input").eq(3).val("");
+	$("#div2 button").html("添加用户信息");
+	$("#div2").css("display","none");
+});
+</script>
+</html>

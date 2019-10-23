@@ -1,0 +1,30 @@
+1、jsp组成
+1) <%@  %> 指令page\include\taglib
+2）<%  %> java代码
+3）<%= %> 表达式输出
+4）<%! %>  声明
+5）<%-- --%> 注释，不会显示在jsp解析后的源码
+6）jsp动作
+
+2、jsp内置对象
+
+3、el表达式：输出
+格式 ${}
+从容器（page\requst\session\application）中取出内容，输出
+
+4、jstl标签库
+
+
+
+jsp->servlet->service->dao ->DB result
+
+DB result -> dao -> service -> servlet（容器session）-> jsp
+
+servlet 获取request数据，调用service，保存数据到容器，跳转jsp
+service 业务处理
+dao  数据库操作，执行sql语句
+pojo 数据介质，类和表映射
+utils 常用工具类
+
+
+

@@ -43,7 +43,7 @@ public class AdminLonginServlet extends HttpServlet {
 
 		switch (admin.checkLogin(admin_name, admin_password)) {
 		case 1:
-			response.sendRedirect("/art-mall/ShowArtsServlet");
+			response.sendRedirect("/art-mall/ArtPageServlet");
 //			request.getRequestDispatcher("/art-mall/admin-index.html").forward(request,response);
 			break;
 			

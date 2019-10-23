@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<script type="text/javascript" src="/20191015/js/jquery-3.1.1.js"></script>
+<style type="text/css">
+	.myback{
+		background-color:red;
+	}
+	.mycolor{
+		color:blue;
+	}
+	.mysize{
+		width:200px;
+		height:50px;
+	}
+	.myfont{
+		font-size:30px;
+		font-style:italic;
+	}
+</style>
+</head>
+<body>
+<ul>
+	<li>aaaaaaaaa</li>
+	<li>bbbbbbbbbb</li>
+	<li>ccccccccccc</li>
+	<li class="mycolor">ddddddd</li>
+	<li>eeeeeeeee</li>
+</ul>
+<input type="text" name="name" value=""/><button>ok</button><button>reset</button>
+<button>remove myfont</button>
+<button id="btn1">hide</button>
+<button id="btn2">show</button>
+<a href="#">无连接</a>
+</body>
+<script type="text/javascript">
+	$("a").html("友情链接：百度");
+	$("a").attr("href","http://www.baidu.com");
+
+
+	$("ul li:first").html("<h1>AAAAAA</h1>");
+	$("ul li:last").text("<h1>AAAAAA</h1>");
+	$("input").val("Hello");
+	
+	$("button:eq(0)").click(function(){
+		var txt = $("input").val();
+		$("ul li:eq(1)").html(txt);
+		
+	});
+	
+	$("ul li").eq(2).addClass("mycolor");
+	$("ul li").eq(3).addClass("myfont");
+	
+	$("button:eq(1)").click(function(){
+		$("ul li").removeClass();
+		
+	});
+	
+	$("button:eq(2)").click(function(){
+		$("ul li").removeClass("myfont");
+	});
+	
+	$("ul li:first").css({
+		"border":"1px solid #f00"
+	});
+	
+	$("#btn1").click(function(){
+		//$("ul").hide(5000);
+		//$("ul").slideUp(5000);
+		$("ul").fadeOut(5000);
+	});
+	$("#btn2").click(function(){
+		//$("ul").show(5000);
+		//$("ul").slideDown(5000);
+		$("ul").fadeIn(5000);
+	});
+	
+	
+
+</script>
+</html>

@@ -1,0 +1,12 @@
+{
+    "weatherinfo": {
+        "city": "大连",
+        "cityid": "101010105",
+        "temp1": "15℃",
+        "temp2": "5℃",
+        "weather": "雷阵雨",
+        "img1": "11.gif",
+        "img2": "55.gif",
+        "ptime": "09:00"
+    }
+}

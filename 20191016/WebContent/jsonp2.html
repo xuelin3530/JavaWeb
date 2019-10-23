@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<script type="text/javascript" src ="js/jquery-3.1.1.js"></script>
+</head>
+<body>
+<input type="text" id="city"/>
+<button id="btn">查询</button>
+<ul>
+
+</ul>
+</body>
+<script type="text/javascript">
+ $("#btn").click(function(){
+	 var cityname = $("#city").val();
+	 
+	 $.ajax({
+		 "type":"GET",
+		 "url":"http://api.k780.com:88/?app=weather.future&&appkey=10003&sign=b59bc3ef6191eb9f747dd4e83c99f2a4&format=json",
+		"data":{"weaid":cityname},
+		"dataType":"json",
+		"success":function(data){
+			if(data["success"]==0){
+				$("ul").append("<li>"+data["msg"]+"</li>");
+				return;
+			}
+			
+			var arr = data["result"];
+			for(var i=0; i<arr.length; i++){
+				var wea = arr[i];
+				var txt = wea["days"]+" "+wea["week"]+" "+wea["temp_low"]+"°C~"+wea["temp_high"]+"°C "+wea["winp"]+wea["wind"];
+				$("ul").append($("<li>"+txt+"</li>"));
+			}
+		},
+		"error":function(data){
+			console.log(data);
+		}
+		 
+	 });
+	 
+ });
+</script>
+</html>

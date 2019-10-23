@@ -29,7 +29,7 @@
         <div class="img-content">
             <ul>
             
-            <c:forEach items="${arts }" var="art">
+            <c:forEach items="${sessionScope.page.list }" var="art">
                 <li>
                     <img class="img-li-fix" src="/art-mall${art.art_cover }" alt="${art.art_name }">
                     <div class="info">
@@ -51,18 +51,11 @@
         </div>
         <div class="page-nav">
             <ul>
-                <li><a href="#">首页</a></li>
-                <li><a href="#">上一页</a></li>
-                <li><span class="first-page">1</span></li>
-                <li><a href="#">2</a></li>
-                <li><a href="#">3</a></li>
-                <li><a href="#">4</a></li>
-                <li><a href="#">5</a></li>
-                <li>...</li>
-                <li><a href="#">98</a></li>
-                <li><a href="#">99</a></li>
-                <li><a href="#">下一页</a></li>
-                <li><a href="#">尾页</a></li>
+              
+              <c:forEach begin="1" end="${sessionScope.page.totalPage }" var = "no">
+                	<li><a href="/art-mall/ArtPageServlet?no=${no }">${no }</a></li>
+              </c:forEach>
+              
             </ul>
         </div>
     </div>

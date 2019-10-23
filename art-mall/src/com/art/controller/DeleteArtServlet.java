@@ -32,18 +32,14 @@ public class DeleteArtServlet extends HttpServlet {
 	 * @see HttpServlet#doGet(HttpServletRequest request, HttpServletResponse response)
 	 */
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		
 		request.setCharacterEncoding("utf-8");
 		
 		String id=request.getParameter("id");
-		
 		Art art = new Art();
-		
 		art.setArt_id(Integer.parseInt(id));
-		
 		ias.deleteArt(Integer.parseInt(id));
         
-        response.sendRedirect("/art-mall/ShowArtsServlet");
+        response.sendRedirect("/art-mall/ArtPageServlet");
     }
 
 	/**

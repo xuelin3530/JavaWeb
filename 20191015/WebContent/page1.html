@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<script type="text/javascript" src="/20191015/js/jquery-3.1.1.js"></script>
+</head>
+<body>
+<h1 id="myh1">hello Jquery</h1>
+<h2 class="myh2">hello JQery</h2>
+<h2 class="myh2">hello JQery</h2>
+<button class="myh2">button1</button>
+<button>button2</button>
+<button>button3</button>
+<button>button4</button>
+<ul id="ul1">
+	<li>1111</li>
+	<li>222</li>
+</ul>
+<ul id="ul2">
+	<li>aaaa</li>
+	<li>bbbb</li>
+	<li>aaaa</li>
+	<li>bbbb</li>
+	<li>aaaa</li>
+	<li>bbbb</li>
+	<li>aaaa</li>
+	<li>bbbb</li>
+	<li>aaaa</li>
+	<li>bbbb</li>
+</ul>
+<input type="text" name="name" />
+<input type="text" name="sex" />
+</body>
+<script type="text/javascript">
+	$("#myh1").html("你好，JQuery");
+	$(".myh2").css("color","red");
+	$("button").click(function(){
+		alert($(this).html());
+	});
+	
+	$("button.myh2").html("按钮1");
+	//$("#ul2 li").css("color","red").css("backgroundColor","blue");
+	$("#ul2 li:even").css({
+		"color":"blue",
+		"background-color":"pink"
+	});
+	
+	$("#ul2 li:odd").css({
+		"color":"pink",
+		"background-color":"blue"
+	});
+	$("input[name='name']").val("Hello");
+</script>
+</html>

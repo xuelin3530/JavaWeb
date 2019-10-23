@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<script type="text/javascript" src="js/jquery-3.1.1.js"></script>
+<style type="text/css">
+#pagediv, #div2{
+	width:400px;
+	text-align:center;
+}
+#pagediv a{
+	display:inline-block;
+	width:30px;
+}
+</style>
+</head>
+<body>
+<table border="1" cellspacing='0' width="400">
+	<tr>
+		<th>编号</th>
+		<th>姓名</th>
+		<th>性别</th>
+		<th>联系方式</th>
+		<th>部门</th>
+	</tr>
+	<tbody id="tbody">
+	
+	</tbody>
+</table>
+<div id="pagediv"></div>
+<div id="div2">共<span></span>记录 共 <span></span>页</div>
+</body>
+<script type="text/javascript">
+$.get("/20191017/PageServlet",{"type":"ajax"},function(data){
+	 fullTable(data);
+	 fullPageDiv(data);
+},"json");
+
+$("#pagediv").on("click","a",function(){
+	var no = $(this).html();
+	$.get("/20191017/PageServlet",{"type":"ajax", "no":no},function(data){
+		 fullTable(data);
+		 fullPageDiv(data);
+	},"json");
+	return false;
+});
+
+function fullPageDiv(data){
+	$("#pagediv").empty();
+	for(var i = 1; i <= data.totalPage; i++){
+		var oa = $("<a href='#'>"+i+"</a>");
+		$("#pagediv").append(oa);
+	}
+	$("#div2 span:first").html(data.totalRecord);
+	$("#div2 span:last").html(data.totalPage);
+}
+
+function fullTable(data){
+	$("#tbody").empty();
+	for(var i=0; i<data.list.length; i++){
+		var user = data.list[i];
+		var otr = $("<tr>");
+		otr.append("<td>"+user.id+"</td>");
+		otr.append($("<td>"+user.uname+"</td>"));
+		otr.append($("<td>"+user.sex+"</td>"));
+		otr.append("<td>"+user.tel+"</td>");
+		otr.append("<td>"+user.depa+"</td>");
+		
+		$("#tbody").append(otr);
+	}
+	
+}
+</script>
+</html>

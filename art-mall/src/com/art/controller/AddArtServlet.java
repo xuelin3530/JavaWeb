@@ -85,7 +85,7 @@ public class AddArtServlet extends HttpServlet {
 		ias.addArt(art);
 		
 		
-		response.sendRedirect("/art-mall/ShowArtsServlet");
+		response.sendRedirect("/art-mall/ArtPageServlet");
 		System.out.println("添加成功");
 	
 	

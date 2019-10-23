@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<style>
+
+	#myimg{
+		display:none;
+	}
+	img{
+		width:150px;
+		height:150px;
+	}
+	
+	.myp{
+		color:red;
+		font-size:40px;
+	}
+</style>
+<script type="text/javascript" src="/20191015/js/jquery-3.1.1.js"></script>
+<script type="text/javascript">
+$(function(){
+	//鼠标悬停、移出事件，写在一起
+	 $("#mya").hover(function(){
+		 $("#myimg").show();
+	 },
+	 function(){
+		 $("#myimg").hide();
+	 });
+	
+	$("#btn1").click(function(){
+		$("#myimg2").toggle();
+	});
+	
+	
+	$("#btn2").click(function(){
+		$("#pp").toggleClass("myp");
+	});
+	
+});
+</script>
+</head>
+<body>
+<a href="#" id="mya">显示图片</a><br/>
+<img src="img/Jellyfish.jpg" id="myimg" />
+<hr/>
+<button id="btn1">隐藏和显示</button><br/>
+<img src="img/Jellyfish.jpg" id="myimg2"/>
+<hr/>
+<button id="btn2">cssClass的添加与删除</button><br/>
+<p class="myp" id="pp">hello</p>
+</body>
+</html>
