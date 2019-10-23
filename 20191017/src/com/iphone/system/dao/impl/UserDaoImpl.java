@@ -22,7 +22,7 @@ public class UserDaoImpl implements IUserDao {
 			PreparedStatement pstmt = null;
 			ResultSet rs = null;
 			
-			String sql = "select * from use_msg limit?,?";
+			String sql = "select * from user_msg limit ?,?";
 			
 			try {
 				conn = DBUtil.getConnetion();
@@ -63,7 +63,7 @@ public class UserDaoImpl implements IUserDao {
 		PreparedStatement pstmt = null;
 		ResultSet rs = null;
 		
-		String sql = "select * from use_msg";
+		String sql = "select * from user_msg";
 		
 		try {
 			conn = DBUtil.getConnetion();

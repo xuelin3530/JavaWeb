@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+	<title>用户注册</title>
+	<link href="style/common.css" type="text/css" rel="stylesheet">
+  <link href="style/add.css" type="text/css" rel="stylesheet">
+  <link rel="stylesheet" href="style/login.css">
+</head>
+<body>
+  <div class="header">
+   <div class="logo f1">
+    <img src="image/logo.png">
+  </div>
+  <div class="auth fr">
+    <ul>
+     <li><a href="#">登录</a></li>
+   </ul>
+ </div>
+</div>
+<div class="content">
+  <div class="center">
+    <div class="center-login">
+      <div class="login-banner">
+       <a href="#"><img src="image/login_banner.png" alt=""></a>
+     </div>
+     <div class="user-login">
+       <div class="user-box">
+         <div class="user-title">
+           <p>用户注册</p>
+         </div>
+         
+         
+          <form action='/art-mall/UserRegisterServlet'  method="post" class="login-table">
+          <div class="login-left">
+            <label class="username">用&nbsp;户&nbsp;名</label>
+            <input type="text" class="yhmiput" name="user-name">
+          </div>
+          <div class="login-right">
+            <label class="passwd">密&nbsp;&nbsp;&nbsp;&nbsp;码</label>
+            <input type="paddword" class="yhmiput" name="user-password">
+          </div>
+		   <div class="login-left">
+            <label class="passwd">确认密码</label>
+            <input type="paddword" class="yhmiput" name="pwd">
+          </div>
+        
+        <div class="login-btn"><button>注    册</button></div>
+        </form>
+        
+      </div>
+    </div>
+  </div>
+</div>
+</div>
+<div class="footer">
+ <p><span>M-GALLARY</span> ©2017 POWERED BY IMOOC.INC</p>
+</div>
+
+</body>
+</html>

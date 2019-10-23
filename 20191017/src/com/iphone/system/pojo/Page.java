@@ -4,7 +4,7 @@ import java.util.List;
 
 public class Page {
 	//每页记录的个数
-	private int size = 10;
+	private int size = 5;
 	//当前页码
 	private int pageno = 1;
 	//	总页数

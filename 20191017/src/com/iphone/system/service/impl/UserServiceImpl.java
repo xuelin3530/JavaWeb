@@ -13,7 +13,7 @@ public class UserServiceImpl implements IUserService {
 		page.setList(ud.getUsersByPage(size, pageno));
 		page.setTotalRecord(ud.getAllUsers().size());
 
-		
+			
 		return page;
 	}
 

@@ -34,14 +34,18 @@ public class PageServlet extends HttpServlet {
 		//请求类型是ajax还是普通请求
 		String reqtype = request.getParameter("type");
 		//当前页码和煤业大小
-		int no = 1, size = 10;
+		
+		
+		Page page = new Page();
+		
 		if(request.getParameter("no")!=null) {
-			no=Integer.parseInt(request.getParameter("no"));
+			page.setPageno(Integer.parseInt(request.getParameter("no")));
 		}
 		if(request.getParameter("size")!=null) {
-			size= Integer.parseInt(request.getParameter("size"));
+			page.setSize( Integer.parseInt(request.getParameter("size")));
 		}
-		Page page = us.getUserByPage(size,no);
+		
+		page = us.getUserByPage(page.getSize(),page.getPageno());
 		
 		if("ajax".equals(reqtype)) {
 			String str = JSON.toJSONString(page);
@@ -49,7 +53,7 @@ public class PageServlet extends HttpServlet {
 		}else {
 			HttpSession session = request.getSession();
 			session.setAttribute("page", page);
-			request.getRequestDispatcher("/show.jsp").forward(request,response);
+			request.getRequestDispatcher("/page.jsp").forward(request,response);
 		}
 	}
 
